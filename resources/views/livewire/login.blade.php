@@ -1,5 +1,5 @@
 <div>
-    <div class="flex items-center justify-center h-screen">
+    <div class="flex items-center justify-center h-screen"> 
         <form class="w-[500px]" wire:submit.prevent="login">
             @csrf
             <div class="">
