@@ -10,6 +10,7 @@ use App\Livewire\Roleslist;
 use App\Livewire\Superadmin;
 use App\Livewire\Editroles;
 use App\Livewire\Userslist;
+use App\Livewire\Permissions;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,10 @@ Route::get('/login', Login::class);
 Route::get('/moduleadmin', Moduleadmin::class);
 
 Route::get('/saam', Saam::class);
+
+Route::get('/ul', Userslist::class);
+
+Route::get('/p', Permissions::class);
 
 Route::get('/rc', Rolecreation::class);
 
