@@ -10,6 +10,7 @@ use App\Livewire\Roleslist;
 use App\Livewire\Superadmin;
 use App\Livewire\Editroles;
 use App\Livewire\Userslist;
+use App\Livewire\Modulemanage;
 use App\Livewire\Permissions;
 
 Route::get('/', function () {
@@ -20,20 +21,22 @@ Route::get('/counter', Counter::class);
 
 Route::get('/login', Login::class);
 
-Route::get('/moduleadmin', Moduleadmin::class);
+Route::get('/moduleAdmin', Moduleadmin::class);
 
-Route::get('/saam', Saam::class);
+Route::get('/superAdminAccountManagement', Saam::class);
 
-Route::get('/ul', Userslist::class);
+Route::get('/userList', Userslist::class);
 
-Route::get('/p', Permissions::class);
+Route::get('/permissions', Permissions::class);
 
-Route::get('/rc', Rolecreation::class);
+Route::get('/roleCreation', Rolecreation::class);
 
-Route::get('/rl', roleslist::class);
+Route::get('/rolesList', roleslist::class);
 
-Route::get('/sa', Superadmin::class);
+Route::get('/superAdmin', Superadmin::class);
 
-Route::get('/er', Editroles::class);
+Route::get('/editRoles', Editroles::class);
 
-Route::get('/ul', Userslist::class);
+Route::get('/usersList', Userslist::class);
+
+Route::get('/moduleManage', Modulemanage::class);
