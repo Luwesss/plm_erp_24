@@ -5,6 +5,7 @@ use App\Livewire\Counter;
 use App\Livewire\Login;
 use App\Livewire\Saam;
 use App\Livewire\Userslist;
+use App\Livewire\Permissions;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,3 +18,5 @@ Route::get('/login', Login::class);
 Route::get('/saam', Saam::class);
 
 Route::get('/ul', Userslist::class);
+
+Route::get('/p', Permissions::class);
