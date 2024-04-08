@@ -1,48 +1,62 @@
-<div>
-    <h1 class="text-3xl font-bold text-red-500">SUPER ADMIN : ACCOUNT MANAGEMENT</h1>
-    <div class="mt-2 mb-2">
-        <button type="submit" class="w-[100px] btn btn-warning" wire:loading.attr="disabled">Back</button>
+<div class="text-primary-content " style="background-image: url('{{ asset('img/bg.png') }}'); width: 100%; height: 100vh;">
+<div class="bg-white navbar">
+    <div class="flex-1">
+        <img src="{{ asset('img/PLM1.png') }}" width="300" height="200">
     </div>
-    <div class="flex items-center justify-center h-screen">
-        <form class="w-[500px]" wire:submit.prevent="login">
-            @csrf
-            <div class="">
-                <h1 class="text-2xl font-bold">ADD ACCOUNT</h1>
+    <button class="btn btn-square btn-ghost" onclick="history.back();">
+        <svg class="w-8 h-8 text-neutral-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1" /></svg>
+    </button>
+</div>
+<br>
+
+<b style="font-size: 30px">
+    Super Admin: Account Management
+</b>
+
+<div class="flex items-center justify-center text-primary-content" style="padding-top: 20px">
+    <div class="bg-white shadow-xl card w-max">
+        <div class="card-body">
+            <b class="text-center">Add Account</b>
+            <div class="font-semibold">
+                User ID
+                <input type="text" class="w-full bg-white input input-bordered"/>
             </div>
-            <div class="mb-2">
-                <label for="uid">USER ID</label>
-                <input wire:model="userId" type="text" placeholder="Type here" class="w-full input input-bordered" />
+            <div class="font-semibold">
+                Password
+                <input type="password" placeholder="*********" class="w-full bg-white input input-bordered"/>
             </div>
-            <div class="mb-2">
-                <label for="password">PASSWORD</label>
-                <input wire:model="password" type="password" placeholder="Type here" class="w-full input input-bordered" />
+            <div class="font-semibold">
+                Confirm Password
+                <input type="password" placeholder="*********" class="w-full bg-white input input-bordered"/>
             </div>
-            <div class="mb-2">
-                <label for="password">CONFIRM PASSWORD</label>
-                <input wire:model="password" type="password" placeholder="Type here" class="w-full input input-bordered" />
+            <button class="btn btn-outline btn-warning" style="color: black">
+                Add User
+            </button>
+        </div>
+      </div>
+
+
+      <div class="h-56 m-10 bg-white shadow-xl card w-96">
+        <div class="card-body">
+            <b class="text-center">Remove Account</b>
+            <div class="font-semibold">
+                User ID
+                <select class="w-full max-w-xs bg-white select select-bordered">
+                    <option disabled selected></option>
+                    <option>2021000000</option>
+                    <option>2020152365</option>
+                  </select>
             </div>
-            <div class="mb-2">
-                <button type="submit" class="w-full btn btn-warning" wire:loading.attr="disabled">Add User</button>
-            </div>
-        </form>
-        <form class="w-[500px]" wire:submit.prevent="login">
-            @csrf
-            <div class="">
-                <h1 class="text-2xl font-bold">REMOVE ACCOUNT</h1>
-            </div>
-            <label for="uid">USER ID</label>
-            <div class="mb-2">
-                <details class="dropdown">
-                    <summary class="m-1 btn">.... v</summary>
-                    <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                      <li><a>Item 1</a></li>
-                      <li><a>Item 2</a></li>
-                    </ul>
-                </details>
-            </div>
-            <div class="mb-2">
-                <button type="submit" class="w-full btn btn-warning" wire:loading.attr="disabled">Remove User</button>
-            </div>
-        </form>
-    </div>
+            <button class="btn btn-outline btn-error" style="color: black">
+                Remove User
+            </button>
+        </div>
+      </div>
+
+</div>
+
+
+
+
+
 </div>
