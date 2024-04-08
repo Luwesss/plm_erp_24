@@ -8,6 +8,8 @@ use App\Livewire\Roleslist;
 use App\Livewire\Superadmin;
 use App\Livewire\Editroles;
 use App\Livewire\Userslist;
+use App\Livewire\Modulemanage;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +28,5 @@ Route::get('/sa', Superadmin::class);
 Route::get('/er', Editroles::class);
 
 Route::get('/ul', Userslist::class);
+
+Route::get('/ma', Modulemanage::class);
