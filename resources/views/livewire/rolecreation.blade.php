@@ -13,7 +13,7 @@
         </div>
         <br>
 
-        <div class="flex flex-grow" style="color: black">
+        <div class="flex flex-grow p-10" style="color: black">
             <div class="flex-1 bg-white shadow-xl card w-96">
             <div class="card-body">
               <b class="flex justify-center">ADD ROLE</b>
