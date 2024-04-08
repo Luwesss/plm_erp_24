@@ -1,21 +1,39 @@
-<div class="p-8 rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold mb-4 text-center">MODULE ADMIN</h2>
-    <form wire:submit.prevent="login" class="flex flex-col justify-center items-center">
-        <div class="mb-4"> <label for="username" class="block font-semibold mb-1 text-center">USER_ID</label>
-            <input wire:model="username" type="text" id="username" name="username" class="input input-bordered w-48 md:w-40 mx-auto text-center " placeholder="Enter your user ID">
-            @error('username') <span class="text-red-500">{{ $message }}</span> @enderror
+<div class="text-primary-content " style="background-image: url('{{ asset('img/bg.png') }}'); width: 100%; height: 100vh;">
+    <div class="bg-white navbar text-primary-content">
+        <div class="flex-1 ">
+            <img src="{{ asset('img/PLM1.png') }}" alt="PLM" width="300" height="200">
         </div>
-        <div class="mb-6"> <label for="password" class="block font-semibold mb-1 text-center">Password</label>
-            <input wire:model="password" type="password" id="password" name="password" class="input input-bordered w-48 md:w-48 mx-auto text-center " placeholder="Enter your password">
-            @error('password') <span class="text-red-500">{{ $message }}</span> @enderror
+        <div class="flex-none gap-2">
+            <div class="flex-1">
+                <a>Search Account ID: </a>
+            </div>
+            <div class="form-control">
+                <input type="text" placeholder="Ex. 023191283" class="bg-transparent input input-bordered" />
+            </div>
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <svg class="w-8 h-8 text-neutral-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="11" cy="11" r="8" />  <line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary w-48">Submit</button>
+      </div>
 
-        <div class="mt-8 flex justify-center">
-            <button class="btn btn-secondary w-48">Go to Super Admin</button>
-            <button class="btn btn-secondary w-48 ml-4">Go to Module Admin</button>
+   <div style="display: flex; justify-content: center; align-items: flex-start; flex-grow: 1;">
+        <div class="bg-white shadow-xl card w-96" style="margin-top: 50px;">
+            <div class="card-body" >
+                <div style="text-align: center;">
+                    <b style="font-size: 20px;">Module Admin</b>
+                </div>
+                <p class="font-medium " style="padding-top: 10px">User ID</p>
+                    <input type="text" class="w-full bg-white input input-bordered" />
+                <p class="font-medium " style="padding-top: 10px">Password</p>
+                    <input type="password" placeholder="*********" class="w-full bg-white input input-bordered" />
+                <button class="btn btn-outline btn-success" style="color: black">Submit</button>
+                <button class="btn btn-outline btn-warning" style="color: black">Go to Super Admin</button>
+                <button class="btn btn-outline btn-warning" style="color: black">Go to Module Admin</button>
+            </div>
         </div>
-    </form>
-</div>
-    </form>
+    </div>
 </div>
