@@ -1,5 +1,4 @@
 <div style="background-image: url('img/BG.png'); background-size: cover; height: 100vh; color: black;">
-
     <div class="bg-white navbar">
         <div class="flex-1">
             <img src="{{ asset('img/PLM1.png') }}" width="300" height="200">
@@ -56,13 +55,8 @@
                         <button class="w-full btn btn-outline btn-success" style="color:black">Check</button>
                     </div>
                     </div>
-
-
-
                     </div>
             </div>
           </div>
     </div>
-
-
 </div>

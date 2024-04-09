@@ -12,6 +12,8 @@ use App\Livewire\Editroles;
 use App\Livewire\Userslist;
 use App\Livewire\Modulemanage;
 use App\Livewire\Permissions;
+use App\Livewire\Mainscreen;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,3 +42,5 @@ Route::get('/editRoles', Editroles::class);
 Route::get('/usersList', Userslist::class);
 
 Route::get('/moduleManage', Modulemanage::class);
+
+Route::get('/mainScreen', Mainscreen::class);
