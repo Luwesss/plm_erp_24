@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center text-primary-content" style="background-image: url('{{ asset('img/BG2.png') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">
+<div class="flex items-center justify-center text-primary-content" style="background-image: url('{{ asset('img/login_background.svg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: fixed;">
 
     <div>
         <div class="p-20">
