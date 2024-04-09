@@ -7,112 +7,103 @@
             <svg class="w-8 h-8 text-neutral-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M9 13l-4 -4l4 -4m-4 4h11a4 4 0 0 1 0 8h-1" /></svg>
         </button>
     </div>
-
-
-      <div class="p-4">
-        <div class="navbar">
-            <div>
-              <a class="font-bold" style="font-size: 30px">Super Admin</a>
-            </div>
-          </div>
-
-          <div class="flex navbar ">
-            <div>
-              <a class="text-xl font-bold">ACCOUNT ID: </a>
-            </div>
-            <div class="ml-4">
-              <select class="w-full max-w-xs select select-ghost select-bordered">
-                <option disabled selected>Account ID</option>
-                <option>202101351</option>
-                <option>202102462</option>
-              </select>
-            </div>
-            <div class="ml-4">
-              <button class="btn btn-ghost">CHECK</button>
-            </div>
-            <div class="ml-4">
-              <button class="btn btn-ghost">MANAGE USERS</button>
-            </div>
-            <div class="ml-4">
-              <button class="btn btn-ghost">SEE ALL USERS</button>
-            </div>
-          </div>
-
-          <div class="flex navbar ">
-            <div>
-              <a class="text-xl font-bold">Roles: </a>
-            </div>
-            <div class="ml-4">
-              <select class="w-full max-w-xs select select-ghost select-bordered">
-                <option disabled selected>Roles</option>
-                <option>AAT Admin</option>
-                <option>Clinic Admin</option>
-              </select>
-            </div>
-            <div class="ml-4">
-                <button class="btn btn-ghost">MODIFY</button>
-            </div>
-            <div class="ml-4">
-                <button class="btn btn-ghost">MANAGE ROLES</button>
-            </div>
-            <div class="ml-4">
-                <button class="btn btn-ghost">SEE ALL ROLES</button>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="flex">
-            <div class="flex-1">
-              <a class="text-xl">Roles</a>
-            </div>
-      </div>
-
+    <a class="p-4 font-bold " style="font-size: 30px">Super Admin</a>
+<br>
+    <div class="flex p-10" style="color: black">
         <div class="bg-white shadow-xl card">
-            <div class="card-body">
+        <div class="card-body">
+            <br>
+            <br>
+            <div>
                 <div>
+                  <b>Account ID: </b>
+
+                  <select class="w-full bg-white select select-bordered " style="color:black">
+                    <option disabled selected></option>
+                    <option>202101351</option>
+                    <option>202102462</option>
+                  </select>
+                  <div class="navbar">
+                      <div>
+                        <button class="btn btn-outline btn-success" style="color: black">CHECK</button>
+                      </div>
+                      <div class="ml-10">
+                        <button class="btn btn-outline btn-info" style="color: black"">MANAGE USERS</button>
+                      </div>
+                      <div class="ml-10">
+                        <button class="btn btn-outline btn-warning" style="color: black">SEE ALL USERS</button>
+                      </div>
+                  </div>
+                </div>
+                <br>
 
 
-                    <div class="overflow-x-auto">
-                        <div class="flex">
-                          <table class="table table-large">
-                            <thead style="color: black">
-                              <tr>
-                                <th>No.</th>
-                                <th>Module</th>
-                                <th>Tables</th>
-                                <th>View</th>
-                                <th>Remove</th>
-                                <th>Modify</th>
-                                <th>Modify Permission</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th>1</th>
-                                <td>Academic Admission and Testing Support</td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                              </tr>
-                              <tr>
-                                <th>2</th>
-                                <td>Clinic Portal</td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                                <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
+              </div>
+
+              <div>
+                <div>
+                  <b>Roles:</b>
+                </div>
+                <div>
+                  <select class="w-full bg-white select select-bordered " style="color:black" >
+                    <option disabled selected></option>
+                    <option>AAT Admin</option>
+                    <option>Clinic Admin</option>
+                  </select>
+                </div>
+                <div class="navbar">
+                    <div>
+                        <button class="btn btn-outline btn-success" style="color: black">MODIFY</button>
+                    </div>
+                    <div class="ml-10">
+                        <button class="btn btn-outline btn-info" style="color: black">MANAGE ROLES</button>
+                    </div>
+                    <div class="ml-10">
+                        <button class="btn btn-outline btn-warning" style="color: black">SEE ALL ROLES</button>
                     </div>
                 </div>
-            </div>
+              </div>
+
+
+        </div>
+      </div>
+      <div class="flex-1 ml-5 bg-white shadow-xl card w-96">
+        <div class="card-body">
+            <b class="flex justify-center">MODIFY ROLE</b>
+            <br>
+            <b>Role ID</b>
+            <select class="bg-white select select-bordered" style="color: black">
+                <option disabled selected></option>
+                <option>Budgeting_ADMIN</option>
+                <option>DRS_ADMIN</option>
+              </select>
+
+            <b>Role Name</b>
+            <input type="text" placeholder="Ex: Student Module Manager'" class="bg-white input input-bordered" />
+            <br>
+            <b>Access to Tables</b>
+          <select class="bg-white select select-bordered" style="color: black">
+              <option disabled selected></option>
+              <option>Budgeting</option>
+              <option>DRS</option>
+            </select>
+            <b>Type of Access</b>
+          <select class="bg-white select select-bordered" style="color: black">
+              <option disabled selected></option>
+              <option>ALL</option>
+              <option>MODIFY</option>
+            </select>
+
+            <button class="btn btn-outline btn-info" style="color: black; ">Modify Role</button>
           </div>
       </div>
+      </div>
+
+
+
+
+
+
+
 
 </div>

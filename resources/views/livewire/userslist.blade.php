@@ -5,10 +5,10 @@
         </div>
         <div class="flex-none gap-2">
             <div class="flex-1">
-                <a class="text-xl">Search Account ID: </a>
+                <a>Search Account ID: </a>
             </div>
             <div class="form-control">
-                <input type="text" class="bg-transparent input input-bordered" />
+                <input type="text" placeholder="Ex. 023191283" class="bg-transparent input input-bordered" />
             </div>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
@@ -21,16 +21,17 @@
       </div>
 
     <div>
-        <div class="navbar">
-            <div class="flex-1">
-                <h1 class="text-xl font-bold" style="font-size: 30px">All Accounts</h1>
+        <div>
+            <div class="p-4 navbar">
+                <div class="flex-1">
+                    <h1 class="text-xl font-bold" style="font-size: 30px">All Accounts</h1>
+                </div>
             </div>
-        </div>
 
-        <div class="p-4">
+        <div class="p-20">
             <div class="navbar">
                 <div class="flex-1">
-                    <h1 class="text-xl">Account List</h1>
+                    <b class="text-xl">Account List</b>
                 </div>
             </div>
             <div class="p-4 bg-white shadow-lg card">

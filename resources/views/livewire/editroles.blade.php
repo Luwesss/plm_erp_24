@@ -18,7 +18,7 @@
                   <b cla>User ID</b>
                   <input type="text" placeholder="User ID" class="bg-white input input-bordered"/>
                   <div style="display: flex; justify-content: center;">
-                    <button class="btn btn-ghost" style="border-color:black">Modify Roles</button>
+                    <button class="btn btn-outline btn-info" style="color:black">Modify Roles</button>
                   </div>
                 </div>
               </div>
