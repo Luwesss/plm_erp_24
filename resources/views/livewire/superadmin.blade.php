@@ -1,5 +1,5 @@
-<div style="background-image: url('{{ asset('img/bg.png') }}'); width: 100%; height: 100vh; color:black">
-    <div class="bg-white navbar">
+<div class="text-primary-content" style="background-image: url('{{ asset('img/plm_bg.jpg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">
+<div class="bg-white navbar">
         <div class="flex-1">
             <img src="{{ asset('img/PLM1.png') }}" alt="Example Image" width="300" height="200">
         </div>
@@ -45,11 +45,13 @@
                   <b>Roles:</b>
                 </div>
                 <div>
-                  <select class="w-full bg-white select select-bordered " style="color:black" >
-                    <option disabled selected></option>
-                    <option>AAT Admin</option>
-                    <option>Clinic Admin</option>
-                  </select>
+                    <div class="w-full card card-bordered">
+                        <div class="card-body">
+                            <p>AAT Admin</p>
+                            <p>Clinic Admin</p>
+                            <p>Student Affair</p>
+                        </div>
+                      </div>
                 </div>
                 <div class="navbar">
                     <div>
@@ -69,32 +71,61 @@
       </div>
       <div class="flex-1 ml-5 bg-white shadow-xl card w-96">
         <div class="card-body">
-            <b class="flex justify-center">MODIFY ROLE</b>
+            <b class="flex justify-center">Permission List</b>
             <br>
-            <b>Role ID</b>
-            <select class="bg-white select select-bordered" style="color: black">
-                <option disabled selected></option>
-                <option>Budgeting_ADMIN</option>
-                <option>DRS_ADMIN</option>
-              </select>
-
-            <b>Role Name</b>
-            <input type="text" placeholder="Ex: Student Module Manager'" class="bg-white input input-bordered" />
-            <br>
-            <b>Access to Tables</b>
-          <select class="bg-white select select-bordered" style="color: black">
-              <option disabled selected></option>
-              <option>Budgeting</option>
-              <option>DRS</option>
-            </select>
-            <b>Type of Access</b>
-          <select class="bg-white select select-bordered" style="color: black">
-              <option disabled selected></option>
-              <option>ALL</option>
-              <option>MODIFY</option>
-            </select>
-
-            <button class="btn btn-outline btn-info" style="color: black; ">Modify Role</button>
+            <div class="overflow-x-auto">
+                <table class="table table-lg">
+                    <thead>
+                        <tr style="color:black">
+                            <th>No.</th>
+                            <th>Module</th>
+                            <th>Tables</th>
+                            <th>View</th>
+                            <th>Remove</th>
+                            <th>Modify</th>
+                            <th>Modify Permission</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Budgeting</td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Accounts Payable</td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Clinic Portal</td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Student Affair (Organization)</td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
           </div>
       </div>
       </div>
