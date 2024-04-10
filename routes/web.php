@@ -43,4 +43,4 @@ Route::get('/usersList', Userslist::class);
 
 Route::get('/moduleManage', Modulemanage::class);
 
-Route::get('/mainScreen', Mainscreen::class);
+Route::get('/mainScreen', Mainscreen::class)->name('mainScreen');
