@@ -15,12 +15,12 @@
                     </div>
                     <div>
                         <p class="font-medium " style="padding-top: 10px">Email Address</p>
-                        <input type="text" placeholder="juandelacruz@plm.edu.ph" class="w-full bg-white input input-bordered" />
+                        <input type="text" wire:model="userId" placeholder="juandelacruz@plm.edu.ph" class="w-full bg-white input input-bordered" />
                         <div class="flex" style="padding-top: 10px">
                             <p class="flex-1 font-medium ">Password</p>
                             <a style="color:#4F74BB" href="youtube.com">Forgot Password?</a>
                         </div>
-                        <input type="text" placeholder="********" class="w-full bg-white input input-bordered" />
+                        <input type="text" wire:model="password" placeholder="********" class="w-full bg-white input input-bordered" />
                     </div>
                     <div class="flex">
                         <label class="cursor-pointer label">
@@ -28,7 +28,7 @@
                             <span class="ml-4 label-text" style="color: black">Keep me signed in</span>
                         </label>
                     </div>
-                    <button class="btn btn-outline" style="color:#4F74BB">Login</button>
+                    <button wire:click="login" class="btn btn-outline" style="color:#4F74BB">Login</button>
                     <div class="text-gray-500 divider" style="font-size: 12px">or sign in with</div>
                     <button class=" bg-slate-300 btn btn-outline" style="font-color:black ;color: black">
                         <div class="flex">
