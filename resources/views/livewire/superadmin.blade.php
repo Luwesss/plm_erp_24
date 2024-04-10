@@ -18,14 +18,19 @@
                 <div>
                   <b>Account ID: </b>
 
-                  <select class="w-full bg-white select select-bordered " style="color:black">
+                  <select  class="w-full bg-white select select-bordered " style="color:black">
                     <option disabled selected></option>
-                    <option>202101351</option>
-                    <option>202102462</option>
+                    
+                    <!--put all the account ID option here-->
+                    <!--IDK WHY IT WORKS LIKE THIS BUT IT DOES WHAT I NEED IT TO DO T_T-->
+                    @foreach ($this->getAllAccounts() as $account)
+                      <option>{{$account->user_id}}</option>
+                    @endforeach
+                    
                   </select>
                   <div class="navbar">
                       <div>
-                        <button class="btn btn-outline btn-success" style="color: black">CHECK</button>
+                        <button wire:click="checkAccount" class="btn btn-outline btn-success" style="color: black">CHECK</button>
                       </div>
                       <div class="ml-10">
                         <button class="btn btn-outline btn-info" style="color: black"">MANAGE USERS</button>
@@ -47,8 +52,10 @@
                 <div>
                   <select class="w-full bg-white select select-bordered " style="color:black" >
                     <option disabled selected></option>
-                    <option>AAT Admin</option>
-                    <option>Clinic Admin</option>
+                    <!--options in Roles-->
+                    @foreach ($this->getAllRoles() as $role)
+                      <option>{{$role->role_id}}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="navbar">
