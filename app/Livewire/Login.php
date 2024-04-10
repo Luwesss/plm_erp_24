@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 class Login extends Component
 {
@@ -17,14 +18,14 @@ class Login extends Component
 
     public function login()
     {
-        dd('login method called');
-        logger('login method called');
         $user = DB::table('users')
             ->where('user_id', $this->userId)
+            ->where('password', $this->password) 
             ->first();
 
-        if ($user && password_verify($this->password, $user->password)) {
-            return redirect()->route('trial');
+        if ($user) {
+            Session::put('user_id', $user->user_id);
+            return redirect()->route('mainScreen');
         } else {
             session()->flash('error', 'Invalid user ID or password.');
             return redirect()->back();
