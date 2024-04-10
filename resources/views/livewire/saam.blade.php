@@ -1,4 +1,4 @@
-<div class="text-primary-content " style="background-image: url('{{ asset('img/bg.png') }}'); width: 100%; height: 100vh;">
+<div class="text-primary-content" style="background-image: url('{{ asset('img/plm_bg.jpg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">
 <div class="bg-white navbar">
     <div class="flex-1">
         <img src="{{ asset('img/PLM1.png') }}" width="300" height="200">
@@ -12,9 +12,10 @@
     Super Admin: Account Management
 </b>
 
-<div class="flex items-center justify-center text-primary-content" style="padding-top: 20px">
+<div class="flex items-center justify-center text-primary-content" style="padding-top: 200px">
     <div class="bg-white shadow-xl card w-max">
         <div class="card-body">
+            <img src="{{ asset('img/PLM1.png') }}" width="400">
             <b class="text-center">Add Account</b>
             <div class="font-semibold">
                 User ID

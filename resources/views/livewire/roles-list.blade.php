@@ -1,4 +1,5 @@
-<div style="background-image: url('{{ asset('img/bg.png') }}'); width: 100%; height: 100vh; color: black;">  <div class="bg-white navbar bg-base-100">
+<div class="text-primary-content" style="background-image: url('{{ asset('img/plm_bg.jpg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">
+    <div class="bg-white navbar bg-base-100">
     <div class="flex-1">
     <div class="flex-1 ">
         <img src="{{ asset('img/PLM1.png') }}" alt="PLM" width="300" height="200">

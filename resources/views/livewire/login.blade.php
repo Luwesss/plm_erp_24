@@ -29,13 +29,6 @@
                         </label>
                     </div>
                     <button wire:click="login" class="btn btn-outline" style="color:#4F74BB">Login</button>
-                    <div class="text-gray-500 divider" style="font-size: 12px">or sign in with</div>
-                    <button class=" bg-slate-300 btn btn-outline" style="font-color:black ;color: black">
-                        <div class="flex">
-                            <img src="{{ asset('img/ms.png') }}" width="15" height="10">
-                        </div>
-                        Continue with Microsoft
-                    </button>
 
                 </div>
             </div>
