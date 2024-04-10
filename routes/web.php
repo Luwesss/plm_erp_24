@@ -25,7 +25,7 @@ Route::get('/login', Login::class);
 
 Route::get('/moduleAdmin', Moduleadmin::class);
 
-Route::get('/superAdminAccountManagement', Saam::class);
+Route::get('/userCreation', Saam::class);
 
 Route::get('/userList', Userslist::class);
 

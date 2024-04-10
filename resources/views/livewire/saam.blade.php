@@ -15,21 +15,22 @@
 <div class="flex items-center justify-center text-primary-content" style="padding-top: 200px">
     <div class="bg-white shadow-xl card w-max">
         <div class="card-body">
+            
             <img src="{{ asset('img/PLM1.png') }}" width="400">
             <b class="text-center">Add Account</b>
             <div class="font-semibold">
                 User ID
-                <input type="text" class="w-full bg-white input input-bordered"/>
+                <input wire:model="user_id" type="text" class="w-full bg-white input input-bordered"/>
             </div>
             <div class="font-semibold">
                 Password
-                <input type="password" placeholder="*********" class="w-full bg-white input input-bordered"/>
+                <input wire:model="password" type="password" placeholder="*********" class="w-full bg-white input input-bordered"/>
             </div>
             <div class="font-semibold">
                 Confirm Password
-                <input type="password" placeholder="*********" class="w-full bg-white input input-bordered"/>
+                <input wire:model="confirmPassword" type="password" placeholder="*********" class="w-full bg-white input input-bordered"/>
             </div>
-            <button class="btn btn-outline btn-warning" style="color: black">
+            <button wire:click="addUser" class="btn btn-outline btn-warning" style="color: black">
                 Add User
             </button>
         </div>
@@ -38,25 +39,21 @@
 
       <div class="h-56 m-10 bg-white shadow-xl card w-96">
         <div class="card-body">
-            <b class="text-center">Remove Account</b>
+            <b class="text-center">Delete Account</b>
             <div class="font-semibold">
                 User ID
-                <select class="w-full max-w-xs bg-white select select-bordered">
+                <select wire:model="selectedAccount" class="w-full max-w-xs bg-white select select-bordered">
                     <option disabled selected></option>
-                    <option>2021000000</option>
-                    <option>2020152365</option>
-                  </select>
+                    @foreach($this->getAllUserInfo() as $user)
+                        <option> {{ $user->user_id }} </option>
+                    @endforeach
+                </select>
             </div>
-            <button class="btn btn-outline btn-error" style="color: black">
-                Remove User
+            <button wire:click="disableAccount" class="btn btn-outline btn-error" style="color: black">
+                Remove Account
             </button>
         </div>
       </div>
 
 </div>
-
-
-
-
-
 </div>
