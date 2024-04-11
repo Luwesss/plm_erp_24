@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 use App\Livewire\Login;
@@ -14,7 +15,6 @@ use App\Livewire\Modulemanage;
 use App\Livewire\Permissions;
 use App\Livewire\Mainscreen;
 
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,19 +27,19 @@ Route::get('/moduleAdmin', Moduleadmin::class);
 
 Route::get('/userCreation', Saam::class);
 
-Route::get('/userList', Userslist::class);
+Route::get('/userList', Userslist::class); //done
 
-Route::get('/permissions', Permissions::class);
+Route::get('/permissions', Permissions::class); //is not needed anymore
 
-Route::get('/roleCreation', Rolecreation::class);
+Route::get('/roleCreation', Rolecreation::class); //done
 
-Route::get('/rolesList', roleslist::class);
+Route::get('/rolesList', roleslist::class); //done
 
 Route::get('/superAdmin', Superadmin::class);
 
-Route::get('/editRoles', Editroles::class);
+Route::get('/editRoles', Editroles::class); //done
 
-Route::get('/usersList', Userslist::class);
+Route::get('/usersList', Userslist::class); //done
 
 Route::get('/moduleManage', Modulemanage::class);
 
