@@ -13,6 +13,13 @@ use App\Livewire\Userslist;
 use App\Livewire\Modulemanage;
 use App\Livewire\Permissions;
 use App\Livewire\Mainscreen;
+use App\Livewire\Dashboard;
+use App\Livewire\Payables;
+use App\Livewire\Tracking;
+use App\Livewire\PayablesAdd;
+use App\Livewire\PayablesView;
+use App\Livewire\FoldersMain;
+use App\Livewire\Notifications;
 
 
 Route::get('/', function () {
@@ -44,3 +51,17 @@ Route::get('/usersList', Userslist::class);
 Route::get('/moduleManage', Modulemanage::class);
 
 Route::get('/mainScreen', Mainscreen::class)->name('mainScreen');
+
+Route::get('/dashboard', Dashboard::class);
+
+Route::get('/payables', Payables::class);
+
+Route::get('/payables/add', PayablesAdd::class);
+
+Route::get('/payables/view', PayablesView::class);
+
+Route::get('/tracking', Tracking::class);
+
+Route::get('/folders/main', FoldersMain::class);
+
+Route::get('/notifications', Notifications::class);
