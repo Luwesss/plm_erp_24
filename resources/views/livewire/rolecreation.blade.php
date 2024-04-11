@@ -1,4 +1,4 @@
-<div class="text-primary-content" style="background-image: url('{{ asset('img/plm_bg.jpg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">    <div class="bg-white navbar">
+<div wire:poll.keep-alive.500ms class="text-primary-content" style="background-image: url('{{ asset("img/plm_bg.jpg") }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">    <div class="bg-white navbar">
         <div class="flex-1">
             <img src="{{ asset('img/PLM1.png') }}" width="300" height="200">
         </div>
@@ -8,7 +8,7 @@
     </div>
     <div class="p-4 justify-content-start" >
         <div>
-            <b style="color: black; font-size: 30px;">Super Admin: Role Management</b>
+            <b style= "color: black; font-size: 30px;"> Super Admin: Role Management</b>
         </div>
         <br>
 
@@ -18,25 +18,34 @@
               <b class="flex justify-center">ADD ROLE</b>
               <br>
               <b>Role ID Extension</b>
-              <input type="text" placeholder="Ex: StdMOD_'Manager'" class="bg-white input input-bordered" />
+              <input wire:model="roleExtension" type="text" placeholder="Ex: StdMOD_'Manager'" class="bg-white input input-bordered" />
 
               <b>Role Name</b>
-              <input type="text" placeholder="Ex: Student Module Manager'" class="bg-white input input-bordered" />
+              <input wire:model="roleName" type="text" placeholder="Ex: Student Module Manager'" class="bg-white input input-bordered" />
               <br>
               <b>Access to Tables</b>
-            <select class="bg-white select select-bordered" style="color: black">
-                <option disabled selected></option>
-                <option>Budgeting</option>
-                <option>DRS</option>
+            <select wire:model="table" class="bg-white select select-bordered" style="color: black">
+                <option selected></option>
+                  @php
+                    $temp = 0;
+                    foreach($this->describeRoles() as $roleColumn){
+                      if($temp > 1){
+                        echo '<option>'.$roleColumn->Field.'</option>';
+                      }
+                      $temp++;
+                    }
+                  @endphp
+                <option value="All Tables">All Tables</option>
               </select>
               <b>Type of Access</b>
-            <select class="bg-white select select-bordered" style="color: black">
-                <option disabled selected></option>
-                <option>ALL</option>
-                <option>MODIFY</option>
+            <select wire:model="permissionGranted" class="bg-white select select-bordered" style="color: black">
+                <option selected></option>
+                @foreach($this->getAllPermissions() as $permission)
+                    <option> {{ $permission->permission_id }} </option>
+                @endforeach
               </select>
 
-              <button class="btn btn-outline btn-success" style="color: black; ">Add Role</button>
+              <button wire:click="addRole" class="btn btn-outline btn-success" style="color: black; ">Add Role</button>
 
             </div>
           </div>
@@ -45,45 +54,56 @@
                 <b class="flex justify-center">MODIFY ROLE</b>
                 <br>
                 <b>Role ID</b>
-                <select class="bg-white select select-bordered" style="color: black">
-                    <option disabled selected></option>
-                    <option>Budgeting_ADMIN</option>
-                    <option>DRS_ADMIN</option>
-                  </select>
+                <select wire:click="updateModify" wire:model="modifyRoleId" class="bg-white select select-bordered" style="color: black">
+                  <option disabled selected></option>
+                  @foreach($this->getAllRoles() as $role)
+                      <option> {{ $role->role_id }} </option>
+                  @endforeach
+                </select>
 
                 <b>Role Name</b>
-                <input type="text" placeholder="Ex: Student Module Manager'" class="bg-white input input-bordered" />
+                <input wire:model="modifyRoleName" type="text" placeholder="Ex: Student Module Manager'" class="bg-white input input-bordered" />
                 <br>
                 <b>Access to Tables</b>
-              <select class="bg-white select select-bordered" style="color: black">
-                  <option disabled selected></option>
-                  <option>Budgeting</option>
-                  <option>DRS</option>
+              <select wire:model="modifyTable" class="bg-white select select-bordered" style="color: black">
+              <option selected></option>
+                  @php
+                    $temp = 0;
+                    foreach($this->describeRoles() as $roleColumn){
+                      if($temp > 1){
+                        echo '<option>'.$roleColumn->Field.'</option>';
+                      }
+                      $temp++;
+                    }
+                  @endphp
+                <option value="All Tables">All Tables</option>
                 </select>
                 <b>Type of Access</b>
-              <select class="bg-white select select-bordered" style="color: black">
-                  <option disabled selected></option>
-                  <option>ALL</option>
-                  <option>MODIFY</option>
+              <select wire:model="modifyAccess" class="bg-white select select-bordered" style="color: black">
+                  <option selected></option>
+                    @foreach($this->getAllPermissions() as $permission)
+                        <option> {{ $permission->permission_id }} </option>
+                    @endforeach
                 </select>
 
-                <button class="btn btn-outline btn-info" style="color: black; ">Modify Role</button>
+                <button wire:click="implementUpdateModify" class="btn btn-outline btn-info" style="color: black; ">Modify Role</button>
 
               </div>
           </div>
-          <div class="p-4 ml-5 bg-white shadow-xl flex-end card w-96" style="height: 100%;>
+          <div class="p-4 ml-5 bg-white shadow-xl flex-end card w-96" style="height: 100%;">
             <div class="card-body">
                 <b class="flex justify-center">DELETE ROLE</b>
                 <br>
                 <b>Role ID</b>
-                <select class="bg-white select select-bordered" style="color: black">
-                    <option disabled selected></option>
-                    <option>Budgeting_ADMIN</option>
-                    <option>DRS_ADMIN</option>
+                <select wire:model="selectedRole" class="bg-white select select-bordered" style="color: black">
+                    <option selected></option>
+                    @foreach($this->getAllRoles() as $role)
+                        <option> {{ $role->role_id }} </option>
+                    @endforeach
                   </select>
                   <br>
 
-                  <button class="btn btn-outline btn-error" style="color: black; ">Delete Role</button>
+                  <button wire:click="deleteRole" class="btn btn-outline btn-error" style="color: black; ">Delete Role</button>
 
               </div>
           </div>

@@ -8,12 +8,13 @@
                 <a>Search Account ID: </a>
             </div>
             <div class="form-control">
-                <input type="text" placeholder="Ex. 023191283" class="bg-transparent input input-bordered" />
+                <input wire:model="searchToken" type="text" placeholder="Ex. 023191283" class="bg-transparent input input-bordered" />
             </div>
-            <div class="dropdown dropdown-end">
+            <div wire:click="updatingSearch" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <svg class="w-8 h-8 text-neutral-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="11" cy="11" r="8" />  <line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+
+                        <!--svg  class="w-8 h-8 text-neutral-500" viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="11" cy="11" r="8" />  <line x1="21" y1="21" x2="16.65" y2="16.65" /></svg-->
                     </div>
                 </div>
             </div>
@@ -44,8 +45,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>023191283</td><td>AAT Admin, Clinic Admin, Student Affair (Organization) Admin</td></tr>
-                            <tr><td>120938109</td><td>Accounts Payable Admin</td></tr>
+                            <!--list all users and their respective roles-->
+                            @foreach($this->getAllUserInfo() as $user)
+                                <tr>
+                                    <td>
+                                        <!--user id-->
+                                        {{$user->user_id}}
+                                    </td>
+                                    <td>
+                                        <!--roles-->
+                                        <p>
+                                            {{ $this->temp = false }} 
+                                            @foreach($this->getAllUserRoles($user->user_id) as $role)
+                                                {{ $role->role_id }},  
+                                            @endforeach
+                                        </p>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

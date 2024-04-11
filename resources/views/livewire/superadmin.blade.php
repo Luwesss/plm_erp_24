@@ -18,14 +18,19 @@
                 <div>
                   <b>Account ID: </b>
 
-                  <select class="w-full bg-white select select-bordered " style="color:black">
+                  <select  class="w-full bg-white select select-bordered " style="color:black">
                     <option disabled selected></option>
-                    <option>202101351</option>
-                    <option>202102462</option>
+                    
+                    <!--put all the account ID option here-->
+                    <!--IDK WHY IT WORKS LIKE THIS BUT IT DOES WHAT I NEED IT TO DO T_T-->
+                    @foreach ($this->getAllAccounts() as $account)
+                      <option>{{$account->user_id}}</option>
+                    @endforeach
+                    
                   </select>
                   <div class="navbar">
                       <div>
-                        <button class="btn btn-outline btn-success" style="color: black">CHECK</button>
+                        <button wire:click="checkAccount" class="btn btn-outline btn-success" style="color: black">CHECK</button>
                       </div>
                       <div class="ml-10">
                         <button class="btn btn-outline btn-info" style="color: black"">MANAGE USERS</button>
@@ -45,6 +50,15 @@
                   <b>Roles:</b>
                 </div>
                 <div>
+<<<<<<< HEAD
+                  <select class="w-full bg-white select select-bordered " style="color:black" >
+                    <option disabled selected></option>
+                    <!--options in Roles-->
+                    @foreach ($this->getAllRoles() as $role)
+                      <option>{{$role->role_id}}</option>
+                    @endforeach
+                  </select>
+=======
                     <div class="w-full card card-bordered">
                         <div class="card-body">
                             <p>AAT Admin</p>
@@ -52,6 +66,7 @@
                             <p>Student Affair</p>
                         </div>
                       </div>
+>>>>>>> c0b0ab52815bad865b2e059a4c462cd1ae013d9c
                 </div>
                 <div class="navbar">
                     <div>

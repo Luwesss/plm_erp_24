@@ -47,24 +47,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td>AAT_ADMIN</td>
-            <td>AAT Admin</td>
-            <td>ALL</td>
-          </tr>
-          <tr>
-            <th>2</th>
-            <td>AccPay_ADMIN</td>
-            <td>Accounts Payable Admin</td>
-            <td>ALL</td>
-          </tr>
-          <tr>
-            <th>3</th>
-            <td>AccRec_ADMIN</td>
-            <td>Accounts Receivables Admin</td>
-            <td>ALL</td>
-          </tr>
+          @foreach($this->getAllRoles() as $role)
+            <tr>
+                <td>
+                    <!--number-->
+                  {{$loop->iteration}}
+                </td>
+                <td>
+                    <!--role id-->
+                  {{$role->role_id}}
+                </td>
+                <td>
+                    <!--role name-->
+                  {{$role->role_name}}
+                </td>
+                <td>
+                    <!--role permission-->
+                  
+                  {{$this->getRolePermission($role->role_id)->permission_id}}
+                </td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
