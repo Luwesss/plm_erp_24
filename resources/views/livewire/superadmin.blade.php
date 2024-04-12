@@ -1,4 +1,4 @@
-<div class="text-primary-content" style="background-image: url('{{ asset('img/plm_bg.jpg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">
+<div wire:poll.keep-alive.100ms class="text-primary-content" style="background-image: url('{{ asset('img/plm_bg.jpg') }}'); width: 100%; height: 100vh; background-size: cover; background-position: center;">
 <div class="bg-white navbar">
         <div class="flex-1">
             <img src="{{ asset('img/PLM1.png') }}" alt="Example Image" width="300" height="200">
@@ -17,10 +17,8 @@
             <div>
                 <div>
                   <b>Account ID: </b>
-
-                  <select  class="w-full bg-white select select-bordered " style="color:black">
-                    <option disabled selected></option>
-                    
+                  <select wire:model="accountId" class="w-full bg-white select select-bordered " style="color:black">
+                    <option selected>---</option>
                     <!--put all the account ID option here-->
                     <!--IDK WHY IT WORKS LIKE THIS BUT IT DOES WHAT I NEED IT TO DO T_T-->
                     @foreach ($this->getAllAccounts() as $account)
@@ -29,14 +27,18 @@
                     
                   </select>
                   <div class="navbar">
-                      <div>
+                      <!--div>
                         <button wire:click="checkAccount" class="btn btn-outline btn-success" style="color: black">CHECK</button>
+                      </div-->
+                      <div class="ml-10">
+                        <a href="/userCreation">
+                          <button class="btn btn-outline btn-info" style="color: black">MANAGE USERS</button>
+                        </a>
                       </div>
                       <div class="ml-10">
-                        <button class="btn btn-outline btn-info" style="color: black"">MANAGE USERS</button>
-                      </div>
-                      <div class="ml-10">
-                        <button class="btn btn-outline btn-warning" style="color: black">SEE ALL USERS</button>
+                        <a href="/usersList">
+                          <button class="btn btn-outline btn-warning" style="color: black">SEE ALL USERS</button>
+                        </a>
                       </div>
                   </div>
                 </div>
@@ -50,33 +52,30 @@
                   <b>Roles:</b>
                 </div>
                 <div>
-<<<<<<< HEAD
-                  <select class="w-full bg-white select select-bordered " style="color:black" >
-                    <option disabled selected></option>
-                    <!--options in Roles-->
-                    @foreach ($this->getAllRoles() as $role)
-                      <option>{{$role->role_id}}</option>
-                    @endforeach
-                  </select>
-=======
                     <div class="w-full card card-bordered">
                         <div class="card-body">
-                            <p>AAT Admin</p>
-                            <p>Clinic Admin</p>
-                            <p>Student Affair</p>
+                            <!--depending on the users roles-->
+                          @foreach($this->getAllUserRoles() as $role)
+                            <p> {{ $role->role_id }} </p>
+                          @endforeach
                         </div>
                       </div>
->>>>>>> c0b0ab52815bad865b2e059a4c462cd1ae013d9c
                 </div>
                 <div class="navbar">
                     <div>
-                        <button class="btn btn-outline btn-success" style="color: black">MODIFY</button>
+                        <a wire:click="saveGlobal" href="/editRoles">
+                          <button class="btn btn-outline btn-success" style="color: black">MODIFY</button>
+                        </a>
                     </div>
                     <div class="ml-10">
-                        <button class="btn btn-outline btn-info" style="color: black">MANAGE ROLES</button>
+                        <a href="/roleCreation">
+                          <button class="btn btn-outline btn-info" style="color: black">MANAGE ROLES</button>
+                        </a>
                     </div>
                     <div class="ml-10">
-                        <button class="btn btn-outline btn-warning" style="color: black">SEE ALL ROLES</button>
+                        <a href="/rolesList">
+                          <button class="btn btn-outline btn-warning" style="color: black">SEE ALL ROLES</button>
+                        </a>
                     </div>
                 </div>
               </div>
@@ -102,42 +101,125 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Budgeting</td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Accounts Payable</td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Clinic Portal</td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Student Affair (Organization)</td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                            <td><input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked /></td>
-                        </tr>
+                        @foreach($this->getAllRolePermissions() as $permission)
+                          <tr>
+                            <td>
+                              {{$loop->iteration}}
+                            </td>
+                            <td>
+                              {{$permission[1]}}
+                            </td>
+                            @if($permission[0]->permission_id == "SUPER_ADMIN")
+                              <td>
+                                <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                              </td>
+                              <td>
+                                <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                              </td>
+                              <td>
+                                <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                              </td>
+                              <td>
+                                <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                              </td>
+                              <td>
+                                <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked/>
+                              </td>
+                            @else
+                              @if($permission[0]->permission_id == "ALL")
+                                <td>
+                                  <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                </td>
+                                <td>
+                                  <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                </td>
+                                <td>
+                                  <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                </td>
+                                <td>
+                                  <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                </td>
+                                <td>
+                                  <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                </td>
+                              @else
+                                @if($permission[0]->permission_id == "MODIFY")
+                                  <td>
+                                    <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                  </td>
+                                  <td>
+                                    <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                  </td>
+                                  <td>
+                                    <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                  </td>
+                                  <td>
+                                    <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                  </td>
+                                  <td>
+                                    <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                  </td>
+                                @else
+                                  @if($permission[0]->permission_id == "MODIFY_REMOVE")
+                                    <td>
+                                      <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                    </td>
+                                    <td>
+                                      <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                    </td>
+                                    <td>
+                                      <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                    </td>
+                                    <td>
+                                      <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                    </td>
+                                    <td>
+                                      <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                    </td>
+                                  @else
+                                    @if($permission[0]->permission_id == "REMOVE")
+                                      <td>
+                                        <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                      </td>
+                                      <td>
+                                        <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                      </td>
+                                      <td>
+                                        <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                      </td>
+                                      <td>
+                                        <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                      </td>
+                                      <td>
+                                        <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                      </td>
+                                    @else
+                                      @if($permission[0]->permission_id == "VIEW")
+                                        <td>
+                                          <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                        </td>
+                                        <td>
+                                          <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" checked />
+                                        </td>
+                                        <td>
+                                          <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                        </td>
+                                        <td>
+                                          <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                        </td>
+                                        <td>
+                                          <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                        </td>
+                                      @else
+                                        <input type="checkbox" class="toggle [--tglbg:white] bg-blue-500 hover:bg-blue-700 border-blue-500" />
+                                      @endif
+                                    @endif
+                                  @endif
+                                @endif
+                              @endif
+                            @endif
+                          </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
