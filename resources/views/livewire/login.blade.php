@@ -14,8 +14,8 @@
                         <h1 class="font-semibold " style="font-size: 30px">Sign In</h1>
                     </div>
                     <div>
-                        <p class="font-medium " style="padding-top: 10px">Email Address</p>
-                        <input type="text" wire:model="userId" placeholder="juandelacruz@plm.edu.ph" class="w-full bg-white input input-bordered" />
+                        <p class="font-medium " style="padding-top: 10px">User ID</p>
+                        <input type="text" wire:model="userId" placeholder="2021*****" class="w-full bg-white input input-bordered" />
                         <div class="flex" style="padding-top: 10px">
                             <p class="flex-1 font-medium ">Password</p>
                             <a style="color:#4F74BB" href="youtube.com">Forgot Password?</a>

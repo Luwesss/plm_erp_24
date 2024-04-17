@@ -42,9 +42,7 @@ class Mainscreen extends Component
             ->select('role_name', 'General Ledger', 'Financial Reporting', 'Project Cost Accounting', 'Purchasing', 'Inventory', 'Accounts Receivables', 'Cash Management/Billing', 'Accounts Payable', 'Budgeting', 'Procurement Management and Monitoring System', 'PLM Asset and Supplies Inventory System')
             ->get();
         $this->financeAccess = $this->formatAccessData($financeQuery);
-        foreach ($this->financeAccess as $role => &$modules) {
-            unset($modules['role_name']);
-        }
+
         $consolidatedFinanceAccess = [
             "General Ledger" => "0",
             "Financial Reporting" => "0",
