@@ -20,8 +20,8 @@
 
       <div class="bottom-0 h-full drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content">
-            <div id="page-content">
+        <div class="drawer-content" style="height: 100vh;">
+            <div id="page-content" style="height: 100vh;">
                 <img src="{{ asset('img/plm_bg.jpg') }}" style="width: 100%; height:100vh">
             </div>
             <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
@@ -36,19 +36,11 @@
                     <ul>
                         @foreach($financeAccess as $module => $access)
                             @if($access == "1")
-                                @if($module == "Accounts Payable")
-                                    <li>
-                                        <a href="#" onclick="changePageContent('{{ asset('img/' . strtolower(str_replace(' ', '_', $module)) . '.svg') }}', 1)">
-                                            {{ $module }}
-                                        </a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="#" onclick="changePageContent('{{ asset('img/' . strtolower(str_replace(' ', '_', $module)) . '.svg') }}', 2)">
-                                            {{ $module }}
-                                        </a>
-                                    </li>
-                                @endif
+                                <li>
+                                    <a href="#" onclick="changePageContent('{{ $module }}')">
+                                        {{ $module }}
+                                    </a>
+                                </li>
                             @else
                                 <li style="color: gray;">
                                     <span>{{ $module }}</span>
@@ -64,7 +56,11 @@
                     <ul>
                         @foreach($registrarAccess as $module => $access)
                             @if($access == "1")
-                                <li><a href="#" onclick="changePageContent('{{ asset('img/' . strtolower(str_replace(' ', '_', $module)) . '.svg') }}')">{{ $module }}</a></li>
+                                <li>
+                                    <a href="#" onclick="changePageContent('{{ $module }}')">
+                                        {{ $module }}
+                                    </a>
+                                </li>
                             @else
                                 <li style="color: gray;"><span>{{ $module }}</span></li>
                             @endif
@@ -78,7 +74,11 @@
                     <ul>
                         @foreach($differentAccess as $module => $access)
                             @if($access == "1")
-                                <li><a href="#" onclick="changePageContent('{{ asset('img/' . strtolower(str_replace(' ', '_', $module)) . '.svg') }}')">{{ $module }}</a></li>
+                                <li>
+                                    <a href="#" onclick="changePageContent('{{ $module }}')">
+                                        {{ $module }}
+                                    </a>
+                                </li>
                             @else
                                 <li style="color: gray;"><span>{{ $module }}</span></li>
                             @endif
@@ -92,7 +92,11 @@
                     <ul>
                         @foreach($hrAccess as $module => $access)
                             @if($access == "1")
-                                <li><a href="#" onclick="changePageContent('{{ asset('img/' . strtolower(str_replace(' ', '_', $module)) . '.svg') }}')">{{ $module }}</a></li>
+                                <li>
+                                    <a href="#" onclick="changePageContent('{{ $module }}')">
+                                        {{ $module }}
+                                    </a>
+                                </li>
                             @else
                                 <li style="color: gray;"><span>{{ $module }}</span></li>
                             @endif
@@ -106,7 +110,11 @@
                     <ul>
                         @foreach($acadAccess as $module => $access)
                             @if($access == "1")
-                                <li><a href="#" onclick="changePageContent('{{ asset('img/' . strtolower(str_replace(' ', '_', $module)) . '.svg') }}')">{{ $module }}</a></li>
+                                <li>
+                                    <a href="#" onclick="changePageContent('{{ $module }}')">
+                                        {{ $module }}
+                                    </a>
+                                </li>
                             @else
                                 <li style="color: gray;"><span>{{ $module }}</span></li>
                             @endif
@@ -118,15 +126,48 @@
     </div>
 
     <script>
-        function changePageContent(imageUrl, mode) {
-            if (mode === 1) {
-                fetch('/dashboard')
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById('page-content').innerHTML = html;
-                    });
-            } else if (mode == 2) {
-                const iframeUrl = 'https://srv498056.hstgr.cloud/'; 
+        function changePageContent(moduleName) {
+            if (moduleName == "Accounts Payable") {
+                const iframeUrl = 'http://127.0.0.1:8001/dashboard'; 
+
+                const iframe = document.createElement('iframe');
+                iframe.src = iframeUrl;
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.frameBorder = '0';
+                iframe.allow = 'fullscreen'; 
+
+                const pageContent = document.getElementById('page-content');
+                pageContent.innerHTML = ''; 
+                pageContent.appendChild(iframe);
+            } else if (moduleName == "Recruitment/Selection/Placement/Personnel Records") {
+                const iframeUrl = 'http://127.0.0.1:8002'; 
+
+                const iframe = document.createElement('iframe');
+                iframe.src = iframeUrl;
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.frameBorder = '0';
+                iframe.allow = 'fullscreen'; 
+
+                const pageContent = document.getElementById('page-content');
+                pageContent.innerHTML = ''; 
+                pageContent.appendChild(iframe);
+            } else if (moduleName == "Learning and Development/Employee Self Services/Others") {
+                const iframeUrl = 'http://127.0.0.1:8003'; 
+
+                const iframe = document.createElement('iframe');
+                iframe.src = iframeUrl;
+                iframe.width = '100%';
+                iframe.height = '100%';
+                iframe.frameBorder = '0';
+                iframe.allow = 'fullscreen'; 
+
+                const pageContent = document.getElementById('page-content');
+                pageContent.innerHTML = ''; 
+                pageContent.appendChild(iframe);
+            } else if (moduleName == "Academic Admission and Testing Support") {
+                const iframeUrl = 'http://127.0.0.1:8004/admission/dashboard'; 
 
                 const iframe = document.createElement('iframe');
                 iframe.src = iframeUrl;
@@ -139,17 +180,7 @@
                 pageContent.innerHTML = ''; 
                 pageContent.appendChild(iframe);
             } else {
-                fetch(imageUrl, { method: 'HEAD' })
-                    .then(response => {
-                        if (response.ok) {
-                            document.getElementById('page-content').innerHTML = `<img src="${imageUrl}" alt="Image" style="width: 100%; height:100vh">`;
-                        } else {
-                            document.getElementById('page-content').innerHTML = `<img src="{{ asset('img/plm_bg.jpg') }}" alt="Fallback Image" style="width: 100%; height:100vh">`;
-                        }
-                    })
-                    .catch(() => {
-                        document.getElementById('page-content').innerHTML = `<img src="{{ asset('img/plm_bg.jpg') }}" alt="Fallback Image" style="width: 100%; height:100vh">`;
-                    });
+                document.getElementById('page-content').innerHTML = `<img src="{{ asset('img/plm_bg.jpg') }}" alt="Fallback Image" style="width: 100%; height:100vh">`;
             }
         }
     </script>
