@@ -118,27 +118,27 @@
     </div>
 
     <script>
-        function changePageContent(imageUrl, mode) {
-            if (mode === 1) {
-                fetch('/dashboard')
-                    .then(response => response.text())
-                    .then(html => {
-                        document.getElementById('page-content').innerHTML = html;
-                    });
-            } else if (mode == 2) {
-                const iframeUrl = 'https://srv498056.hstgr.cloud/'; 
+            function changePageContent(imageUrl, mode) {
+                if (mode === 1) {
+                    fetch('/dashboard')
+                        .then(response => response.text())
+                        .then(html => {
+                            document.getElementById('page-content').innerHTML = html;
+                        });
+                } else if (mode == 2) {
+                    const iframeUrl = 'https://srv498056.hstgr.cloud'; 
 
-                const iframe = document.createElement('iframe');
-                iframe.src = iframeUrl;
-                iframe.width = '100%';
-                iframe.height = '100%';
-                iframe.frameBorder = '0';
-                iframe.allow = 'fullscreen'; 
+                    const iframe = document.createElement('iframe');
+                    iframe.src = iframeUrl;
+                    iframe.width = '100%';
+                    iframe.height = '100%';
+                    iframe.frameBorder = '0';
+                    iframe.allow = 'fullscreen'; 
 
-                const pageContent = document.getElementById('page-content');
-                pageContent.innerHTML = ''; 
-                pageContent.appendChild(iframe);
-            } else {
+                    const pageContent = document.getElementById('page-content');
+                    pageContent.innerHTML = ''; 
+                    pageContent.appendChild(iframe);
+                } else {
                 fetch(imageUrl, { method: 'HEAD' })
                     .then(response => {
                         if (response.ok) {
