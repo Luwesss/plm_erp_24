@@ -225,6 +225,7 @@
             </div>
           </div>
       </div>
+      <script src="/livewire/livewire.js?id={{ now()->timestamp }}"></script>s
       </div>
 
 

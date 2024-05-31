@@ -71,4 +71,5 @@
         </tbody>
       </table>
     </div>
+    <script src="/livewire/livewire.js?id={{ now()->timestamp }}"></script>
   </div>

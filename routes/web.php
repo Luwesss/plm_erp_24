@@ -13,14 +13,15 @@ use App\Livewire\Userslist;
 use App\Livewire\Modulemanage;
 use App\Livewire\Permissions;
 use App\Livewire\Mainscreen;
+use App\Livewire\StudentDashboard;
+use App\Livewire\EmployeeDashboard;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Login::class);
 
 Route::get('/counter', Counter::class);
 
-Route::get('/login', Login::class);
+// Route::get('/login', Login::class);
+Route::post('/login', [Login::class, 'login']);
 
 Route::get('/moduleAdmin', Moduleadmin::class);
 
@@ -43,3 +44,7 @@ Route::get('/usersList', Userslist::class); //done
 Route::get('/moduleManage', Modulemanage::class);
 
 Route::get('/mainScreen', Mainscreen::class)->name('mainScreen');
+
+Route::get('/studentdashboard', StudentDashboard::class)->name('studentdashboard');
+
+Route::get('/employeedashboard', EmployeeDashboard::class)->name('employeedashboard');

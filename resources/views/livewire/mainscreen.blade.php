@@ -125,7 +125,7 @@
         </div>
     </div>
 
-    <script>
+    {{-- <script>
         function changePageContent(moduleName) {
             if (moduleName == "Accounts Payable") {
                 const iframeUrl = 'http://127.0.0.1:8001/dashboard'; 
@@ -183,9 +183,9 @@
                 document.getElementById('page-content').innerHTML = `<img src="{{ asset('img/plm_bg.jpg') }}" alt="Fallback Image" style="width: 100%; height:100vh">`;
             }
         }
-    </script>
+    </script> --}}
 
       </div>
 
-
+      <script src="/livewire/livewire.js?id={{ now()->timestamp }}"></script>
 </div>
