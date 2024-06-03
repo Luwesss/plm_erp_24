@@ -11,10 +11,14 @@ class StudentDashboard extends Component
 {
     public $userId;
     public $roles;
+    public $password;
+    public $role;
 
     public function mount()
     {
         $this->userId = Session::get('user_id');
+        $this->password = Session::get('password');
+        $this->role = Session::get('role_id');
         if ($this->userId) {
             $this->loadUserRoles();
         }
@@ -29,7 +33,8 @@ class StudentDashboard extends Component
     }
 
     public function redirectTo(){
-        return redirect()->to('https://www.youtube.com/results?search_query=how+to+make+button+in+tailwind+css');
+        $hashedPassword = bcrypt($this->password); 
+        return redirect()->to('https://hr-lnd.plmerp24.cloud/test?id='.$this->userId.'&password='.$hashedPassword);
     }
   
       public function render()
